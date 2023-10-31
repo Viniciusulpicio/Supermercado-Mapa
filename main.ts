@@ -19,4 +19,30 @@ const planta: number[][] = [
     [22, 11, 11, 11, 88, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 22],
     [22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22],
     [22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22]
-  ]
+  ];
+
+const colorir = (text): any =>{
+  if (text == 22){
+    return color.red.bgRed(text)
+  }else if (text = 11){
+    return color.blue.bgBlue(text)
+  }else if (text == 33){
+    return color.green.bgGreen(text)
+  }else {
+    return color.yellow.bgYellow(text)
+  }
+}
+
+var x:number = 0;
+var y:number = 5;
+
+  const mostrarPlanta = (): void => {
+  console.clear();
+  for (let i of planta){
+    let linha:any[] = []
+    for (let e of i) {
+      linha.push(colorir(e))
+    }
+    console.log(linha.toString().replaceAll(',',''))
+  }
+}
