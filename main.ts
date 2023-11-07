@@ -51,7 +51,7 @@ const mostrarPlanta = () => {
 };
 
 const descer = ():void => {
-  if (x + 1 <= planta.length){
+  if (x + 1 <= planta.length && planta[x + 1][y] !== 22){
     planta[x][y] = 11;
     x = x + 1;
     planta[x][y] = 33;
@@ -60,7 +60,7 @@ const descer = ():void => {
 };
 
 const subir = ():void => {
-  if (x - 1 >= 0){
+  if (x - 1 >= 0 && planta[x - 1][y] !== 22){
     planta[x][y] = 11;
     x = x - 1;
     planta[x][y] = 33;
@@ -69,7 +69,7 @@ const subir = ():void => {
 };
 
 const esquerda = ():void => {
-  if (y - 1 >= 0){
+  if (y - 1 >= 0 && planta[x][y - 1] !== 22){
     planta[x][y] = 11;
     y = y - 1;
     planta[x][y] = 33;
@@ -78,7 +78,7 @@ const esquerda = ():void => {
 };
 
 const direita = ():void => {
-  if (y - 1 >= 0){
+  if (y - 1 < planta[0].length && planta[x][y + 1] !== 22){
     planta[x][y] = 11;
     y = y + 1;
     planta[x][y] = 33;
@@ -86,9 +86,21 @@ const direita = ():void => {
   }
 };
 
+const verificarProduto = ():boolean =>{
+  for (var linha of planta){
+    for (var item of linha){
+      if(item == 88){
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+
 while (true) {
   mostrarPlanta();
-  let escolha = input("Digite uma direção (w,a,s,d): ");
+  let escolha = input("Digite uma direção: W (Cima),A (Esquerda),S (Baixo),D (Direita): ");
   if (escolha.toUpperCase() === "QUIT") {
     break;
   } else if (escolha.toUpperCase() === "W") {
@@ -97,7 +109,7 @@ while (true) {
     esquerda();
   } else if (escolha.toUpperCase() === "S") {
     descer();
-  } else if (escolha.toUpperCase() === "D") {
+  } else if (escolha.toUpperCase() === "D ") {
     direita();
   }
 }
