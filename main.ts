@@ -26,11 +26,11 @@ const colorir = (text: number): string => {
   if (text === 22) {
     return color.red.bgBlack("  ");
   } else if (text === 11) {
-    return color.blue.bgBlue("  ");
+    return color.blue.bgXterm(129)("  ");
   } else if (text === 33) {
     return color.green.bgWhite("  ");
   } else {
-    return color.yellow.bgGreen("  ");
+    return color.yellow.bgBlue("  ");
   }
 };
 
