@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "cli-color": "^2.0.3",
+    "es5-ext": "^0.10.62",
     "prompt-sync": "^4.2.0",
     "ts-node": "^10.9.1"
   }
