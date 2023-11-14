@@ -149,4 +149,3 @@ const start = (plantaAtual: number[][]) => {
   }
   
   start(planta);
-  
